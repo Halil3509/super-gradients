@@ -23,6 +23,7 @@ from PIL import Image, ExifTags
 from jsonschema import validate
 
 from super_gradients.common.abstractions.abstract_logger import get_logger
+from collections.abc import Iterable as CollectionsIterable
 
 # These functions changed from torch 1.2 to torch 1.3
 
@@ -618,7 +619,7 @@ def ensure_is_tuple_of_two(inputs: Union[Any, Iterable[Any], None]) -> Union[Tup
     if inputs is None:
         return None
 
-    if isinstance(inputs, typing.Iterable) and not isinstance(inputs, str):
+    if isinstance(inputs, CollectionsIterable) and not isinstance(inputs, str):
         a, b = inputs
         return a, b
 
